@@ -7,3 +7,18 @@ def decodeMorse(morse_code):
     return decoded
     
     
+from itertools import groupby
+def decodeBits(bits):
+  bits_list = [''.join(g) for k, g in groupby(bits)]  
+  print(bits_list)
+  morse_code = ''
+  for bit in bits_list:
+    if int(bit[0]) == 0 and len(bit) % 7 == 0:
+      morse_code += ' '
+    if int(bit[0]) == 1:
+      if len(bit) % 3 == 0:
+        morse_code += '-'
+      else:
+        morse_code += '.'
+  print(morse_code)
+    
