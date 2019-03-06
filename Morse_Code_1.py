@@ -1,5 +1,11 @@
 #Codewars Morse Code decoder part 1
 #Codewars includes a Morse Code dictionary
+morse = (".---- ..--- ...-- ....- ..... -.... --... ---.. ----. ----- "
+         ".- -... -.-. -.. . ..-. --. .... .. .--- -.- .-.. -- -. --- "
+         ".--. --.- .-. ... - ..- ...- .-- -..- -.-- --..").split(' ')
+abc = '1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+MORSE_CODE = dict(zip(morse, abc))```
+
 from itertools import groupby
 
 def decodeMorse(morse_code):    
