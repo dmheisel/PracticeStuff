@@ -4,7 +4,7 @@ morse = (".---- ..--- ...-- ....- ..... -.... --... ---.. ----. ----- "
          ".- -... -.-. -.. . ..-. --. .... .. .--- -.- .-.. -- -. --- "
          ".--. --.- .-. ... - ..- ...- .-- -..- -.-- --..").split(' ')
 abc = '1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-MORSE_CODE = dict(zip(morse, abc))```
+MORSE_CODE = dict(zip(morse, abc))
 
 from itertools import groupby
 
@@ -20,7 +20,7 @@ def decodeBits(bits):
   bits_list = [''.join(g) for k, g in groupby(bits.strip('0'))]  
   #time unit is the minimum length of a group -- the smallest input is the base time unit.  *3 for dashes and letter-breaks, 
   # * 7 for spaces
-  time_unit = min([len(bit) for bit in bits_list)
+  time_unit = min([len(bit) for bit in bits_list])
   morse_code = '' 
   for bit in bits_list:
     if int(bit[0]) == 0 and len(bit) == time_unit*3:
@@ -34,3 +34,4 @@ def decodeBits(bits):
         morse_code += '.'
   return morse_code
 
+print(decodeMorse(decodeBits('1100110011001100000011000000111111001100111111001111110000000000000011001111110011111100111111000000110011001111110000001111110011001100000011')))
