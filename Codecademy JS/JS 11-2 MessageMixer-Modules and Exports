@@ -1,0 +1,47 @@
+const countChars = (message, char) => {
+    let count = 0
+    let string = message.toLowerCase()
+    for(i = 0; i < string.length; i++) {
+        if (string[i] === char.toLowerCase()) {
+            count ++;
+            };
+        };
+    return count;
+}
+
+const toTitleCase = (message) => {
+    let inpArray = message.toLowerCase().split(' ')
+    newString = inpArray.map(x => x.charAt(0).toUpperCase() + x.slice(1))
+    return newString.join(' ');
+}
+
+const reverseWords = (message) => {
+    let inpArray = message.split(' ');
+    newArray= []
+    inpArray.forEach(word => {
+        newArray.push(word.split('').reverse().join(''))
+    });
+    return newArray.join(' ');
+};
+
+const swapFirstOccurence = (message, swapOut, swapIn) => {
+    return message.replace(swapOut, swapIn);
+};
+const swapEveryOccurence = (message, swapOut, swapIn) => {
+    return message.split(swapOut).join(swapIn);
+};
+
+const encode = (message, codex) => {
+    for (key in codex) {
+        message = swapEveryOccurence(message, key, codex[key]); 
+    };
+    return message;
+}
+
+let msg = 'what is the color of the sky?';
+let codex = {"a": "@", "s": "$", "i": "!", "o":"0"}
+console.log(countChars(msg, 't'));
+console.log(toTitleCase(msg));
+console.log(reverseWords(msg));
+console.log(swapFirstOccurence(msg, 'sky', 'water'));
+console.log(encode(msg, codex))
